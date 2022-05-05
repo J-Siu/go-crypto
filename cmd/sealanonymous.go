@@ -22,12 +22,10 @@ THE SOFTWARE.
 package cmd
 
 import (
-	"encoding/base64"
 	"fmt"
-	"os"
 
+	"github.com/J-Siu/go-helper"
 	"github.com/spf13/cobra"
-	"golang.org/x/crypto/nacl/box"
 )
 
 var key string
@@ -44,8 +42,9 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		// fmt.Println("sealanonymous called")
-		sealAnonymous()
+
+		encrypted_msg := helper.BoxSealAnonymous(&key, &msg)
+		fmt.Println(*encrypted_msg)
 	},
 }
 
@@ -65,22 +64,4 @@ func init() {
 	sealanonymousCmd.Flags().StringVarP(&msg, "msg", "m", "", "Message(required)")
 	sealanonymousCmd.MarkFlagRequired("key")
 	sealanonymousCmd.MarkFlagRequired("msg")
-}
-
-func sealAnonymous() {
-	// fmt.Println("key:", key)
-	// fmt.Println("msg:", msg)
-
-	keyByte := make([]byte, base64.StdEncoding.DecodedLen(len(key)))
-	n, _ := base64.StdEncoding.Decode(keyByte, []byte(key))
-	if n != 32 {
-		fmt.Println("Key length not equal to 32: ", n)
-		os.Exit(1)
-	}
-
-	keyByteP := new([32]byte)
-	copy((*keyByteP)[:], keyByte)
-	outByte, _ := box.SealAnonymous(nil, []byte(msg), keyByteP, nil)
-	outStr := base64.StdEncoding.EncodeToString(outByte)
-	fmt.Println(outStr)
 }
