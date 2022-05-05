@@ -34,15 +34,8 @@ var msg string
 // sealanonymousCmd represents the sealanonymous command
 var sealanonymousCmd = &cobra.Command{
 	Use:   "sealanonymous",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "x/crypto box seal anonymous. Output is base64 encoded",
 	Run: func(cmd *cobra.Command, args []string) {
-
 		encrypted_msg := helper.BoxSealAnonymous(&key, &msg)
 		fmt.Println(*encrypted_msg)
 	},
@@ -50,18 +43,8 @@ to quickly create a Cobra application.`,
 
 func init() {
 	boxCmd.AddCommand(sealanonymousCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// sealanonymousCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// sealanonymousCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	sealanonymousCmd.Flags().StringVarP(&key, "key", "k", "", "Base64 encoded public key(required)")
-	sealanonymousCmd.Flags().StringVarP(&msg, "msg", "m", "", "Message(required)")
+	sealanonymousCmd.Flags().StringVarP(&key, "key", "k", "", "(required) base64 encoded public key")
+	sealanonymousCmd.Flags().StringVarP(&msg, "msg", "m", "", "(required) plain text message")
 	sealanonymousCmd.MarkFlagRequired("key")
 	sealanonymousCmd.MarkFlagRequired("msg")
 }
