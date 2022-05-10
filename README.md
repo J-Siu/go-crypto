@@ -41,6 +41,8 @@ F4XDi4ZPCwRAizgVry3CbBLaX9GDbwGXkf/SRoLCEX2veSZKdHtIFMSDGPwIB/h/V0Vodu4k1h0FSMdk
 
 - 1.0.0
   - Implement box seal anonymous
+- v1.0.1
+  - Fix goreleaser
 
 ### License
 
