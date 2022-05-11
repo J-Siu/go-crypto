@@ -1,6 +1,8 @@
 ## go-crypto
 A command line tool for crypto function.
 
+> This is not crypto currency program.
+
 ### Purpose
 
 Provide crypto function for command line scripting, eg. [mygit](https://github.com/J-Siu/mygit). Currently only box seal anonymous is implemented, which is used for calculating github repository secret.
