@@ -1,5 +1,19 @@
-## go-crypto
-A command line tool for crypto function.
+# go-crypto [![Paypal donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate/?business=HZF49NM9D35SJ&no_recurring=0&currency_code=CAD)
+
+Command line tool for encryption function.
+
+### Table Of Content
+<!-- TOC -->
+
+- [Purpose](#purpose)
+- [Usage](#usage)
+- [Example](#example)
+- [Repository](#repository)
+- [Contributors](#contributors)
+- [Change Log](#change-log)
+- [License](#license)
+
+<!-- /TOC -->
 
 ### Purpose
 
@@ -42,7 +56,7 @@ F4XDi4ZPCwRAizgVry3CbBLaX9GDbwGXkf/SRoLCEX2veSZKdHtIFMSDGPwIB/h/V0Vodu4k1h0FSMdk
 - 1.0.0
   - Implement box seal anonymous
 - v1.0.1
-  - Fix goreleaser
+  - Fix `goreleaser`
 
 ### License
 
