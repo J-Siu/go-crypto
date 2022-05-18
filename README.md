@@ -5,6 +5,7 @@ Command line tool for encryption function.
 ### Table Of Content
 <!-- TOC -->
 
+- [Table Of Content](#table-of-content)
 - [Purpose](#purpose)
 - [Usage](#usage)
 - [Example](#example)
@@ -16,7 +17,7 @@ Command line tool for encryption function.
 <!-- /TOC -->
 
 > This is not crypto currency program.
-
+<!--more-->
 ### Purpose
 
 Provide crypto function for command line scripting, eg. [mygit](https://github.com/J-Siu/mygit). Currently only box seal anonymous is implemented, which is used for calculating github repository secret.
