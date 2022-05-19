@@ -15,9 +15,9 @@ Command line tool for encryption function.
 - [License](#license)
 
 <!-- /TOC -->
-
-> This is not crypto currency program.
 <!--more-->
+> This is not crypto currency program.
+
 ### Purpose
 
 Provide crypto function for command line scripting, eg. [mygit](https://github.com/J-Siu/mygit). Currently only box seal anonymous is implemented, which is used for calculating github repository secret.
