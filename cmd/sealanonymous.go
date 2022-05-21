@@ -37,7 +37,9 @@ var sealanonymousCmd = &cobra.Command{
 	Short: "x/crypto box seal anonymous. Output is base64 encoded",
 	Run: func(cmd *cobra.Command, args []string) {
 		encrypted_msg := helper.BoxSealAnonymous(&key, &msg)
-		fmt.Println(*encrypted_msg)
+		if encrypted_msg != nil {
+			fmt.Println(*encrypted_msg)
+		}
 	},
 }
 
