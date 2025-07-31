@@ -1,5 +1,5 @@
 /*
-Copyright © 2022 John, Sing Dao, Siu <john.sd.siu@gmail.com>
+Copyright © 2025 John, Sing Dao, Siu <john.sd.siu@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -28,13 +28,15 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var cfgFile string
+const Version = "v1.0.3"
+
 var NoError bool
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "go-crypto",
-	Short: "A x/crypto command line tool.",
+	Use:     "go-crypto",
+	Short:   "A x/crypto command line tool.",
+	Version: Version,
 	PersistentPostRun: func(cmd *cobra.Command, args []string) {
 		if !NoError {
 			helper.Report(helper.Warns, "Warning", true, false)
