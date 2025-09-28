@@ -5,7 +5,6 @@ Command line tool for encryption function.
 ### Table Of Content
 <!-- TOC -->
 
-- [Table Of Content](#table-of-content)
 - [Purpose](#purpose)
 - [Usage](#usage)
 - [Example](#example)
@@ -22,7 +21,7 @@ Command line tool for encryption function.
 
 Provide crypto function for command line scripting, eg. [mygit](https://github.com/J-Siu/mygit). Currently only box seal anonymous is implemented, which is used for calculating github repository secret.
 
-Open an issue here or in [go-helper](https://github.com/J-Siu/go-helper) if you need additional crypto functions.
+Open an issue here or in [go-helper](https://github.com/J-Siu/go-crypto) if you need additional crypto functions.
 
 ### Usage
 
@@ -64,6 +63,8 @@ F4XDi4ZPCwRAizgVry3CbBLaX9GDbwGXkf/SRoLCEX2veSZKdHtIFMSDGPwIB/h/V0Vodu4k1h0FSMdk
   - Update to Go 1.20 and dependency
 - v1.0.3
   - Fix Github workflows
+- v1.0.4
+  - Include `crypto` mod
 
 ### License
 

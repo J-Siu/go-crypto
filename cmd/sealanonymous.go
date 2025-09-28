@@ -19,12 +19,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 package cmd
 
 import (
 	"fmt"
 
-	"github.com/J-Siu/go-helper"
+	"github.com/J-Siu/go-crypto/crypto"
+	"github.com/J-Siu/go-helper/v2/err"
 	"github.com/spf13/cobra"
 )
 
@@ -36,10 +38,11 @@ var sealanonymousCmd = &cobra.Command{
 	Use:   "sealanonymous",
 	Short: "x/crypto box seal anonymous. Output is base64 encoded",
 	Run: func(cmd *cobra.Command, args []string) {
-		encrypted_msg := helper.BoxSealAnonymous(&key, &msg)
-		if encrypted_msg != nil {
+		encrypted_msg, e := crypto.BoxSealAnonymous(&key, &msg)
+		if e == nil && encrypted_msg != nil {
 			fmt.Println(*encrypted_msg)
 		}
+		err.Queue(e)
 	},
 }
 

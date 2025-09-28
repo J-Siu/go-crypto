@@ -19,36 +19,30 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 package cmd
 
 import (
 	"os"
 
-	"github.com/J-Siu/go-helper"
+	"github.com/J-Siu/go-helper/v2/err"
+	"github.com/J-Siu/go-helper/v2/ezlog"
 	"github.com/spf13/cobra"
 )
 
-const Version = "v1.0.3"
+const Version = "v1.0.4"
 
-var NoError bool
-
-// rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:     "go-crypto",
 	Short:   "A x/crypto command line tool.",
 	Version: Version,
 	PersistentPostRun: func(cmd *cobra.Command, args []string) {
-		if !NoError {
-			helper.Report(helper.Warns, "Warning", true, false)
-			helper.Report(helper.Errs, "Error", true, false)
-		}
-		if helper.Errs.NotEmpty() {
+		if !err.Empty() {
+			ezlog.Err().NameLn("Error").Msg(err.Errs).Out()
 			os.Exit(1)
 		}
 	}}
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
@@ -58,8 +52,6 @@ func Execute() {
 
 func init() {
 	cobra.OnInitialize(initConfig)
-	rootCmd.PersistentFlags().BoolVarP(&NoError, "no-error", "", false, "Do not print error")
 }
 
-// initConfig reads in config file and ENV variables if set.
 func initConfig() {}
