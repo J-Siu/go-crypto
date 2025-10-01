@@ -50,6 +50,7 @@ func BoxSealAnonymous(base64PublicKey, msg *string) (*string, error) {
 	if length != 32 {
 		e = errors.New("Decoded key length is " + strconv.Itoa(length) + ". Must be 32.")
 	}
+
 	// Decode incoming base64 public key
 	if e == nil {
 		decodedKeyByte = make([]byte, 32)

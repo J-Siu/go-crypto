@@ -25,7 +25,7 @@ package cmd
 import (
 	"os"
 
-	"github.com/J-Siu/go-helper/v2/err"
+	"github.com/J-Siu/go-helper/v2/errs"
 	"github.com/J-Siu/go-helper/v2/ezlog"
 	"github.com/spf13/cobra"
 )
@@ -37,8 +37,8 @@ var rootCmd = &cobra.Command{
 	Short:   "A x/crypto command line tool.",
 	Version: Version,
 	PersistentPostRun: func(cmd *cobra.Command, args []string) {
-		if !err.Empty() {
-			ezlog.Err().NameLn("Error").Msg(err.Errs).Out()
+		if !errs.IsEmpty() {
+			ezlog.Err().Nn("Error").M(errs.Errs).Out()
 			os.Exit(1)
 		}
 	}}

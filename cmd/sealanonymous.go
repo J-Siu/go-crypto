@@ -26,7 +26,7 @@ import (
 	"fmt"
 
 	"github.com/J-Siu/go-crypto/crypto"
-	"github.com/J-Siu/go-helper/v2/err"
+	"github.com/J-Siu/go-helper/v2/errs"
 	"github.com/spf13/cobra"
 )
 
@@ -38,11 +38,12 @@ var sealanonymousCmd = &cobra.Command{
 	Use:   "sealanonymous",
 	Short: "x/crypto box seal anonymous. Output is base64 encoded",
 	Run: func(cmd *cobra.Command, args []string) {
+		prefix := "sealanonymousCmd"
 		encrypted_msg, e := crypto.BoxSealAnonymous(&key, &msg)
 		if e == nil && encrypted_msg != nil {
 			fmt.Println(*encrypted_msg)
 		}
-		err.Queue(e)
+		errs.Queue(prefix, e)
 	},
 }
 

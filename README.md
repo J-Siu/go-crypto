@@ -7,6 +7,8 @@ Command line tool for encryption function.
 
 - [Purpose](#purpose)
 - [Usage](#usage)
+- [Package](#package)
+- [Command Line](#command-line)
 - [Example](#example)
 - [Repository](#repository)
 - [Contributors](#contributors)
@@ -24,6 +26,18 @@ Provide crypto function for command line scripting, eg. [mygit](https://github.c
 Open an issue here or in [go-helper](https://github.com/J-Siu/go-crypto) if you need additional crypto functions.
 
 ### Usage
+
+### Package
+
+```sh
+go get github.com/J-Siu/go-crypto
+```
+
+```go
+import "github.com/J-Siu/go-crypto/crypto"
+```
+
+### Command Line
 
 ```sh
 $ go-crypto box sealanonymous -h
@@ -65,6 +79,8 @@ F4XDi4ZPCwRAizgVry3CbBLaX9GDbwGXkf/SRoLCEX2veSZKdHtIFMSDGPwIB/h/V0Vodu4k1h0FSMdk
   - Fix Github workflows
 - v1.0.4
   - Include `crypto` mod
+- v1.0.5
+  - Update go-helper/v2
 
 ### License
 
