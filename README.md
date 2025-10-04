@@ -23,7 +23,7 @@ Command line tool for encryption function.
 
 Provide crypto function for command line scripting, eg. [mygit](https://github.com/J-Siu/mygit). Currently only box seal anonymous is implemented, which is used for calculating github repository secret.
 
-Open an issue here or in [go-helper](https://github.com/J-Siu/go-crypto) if you need additional crypto functions.
+Open an issue here or in [go-crypto](https://github.com/J-Siu/go-crypto) if you need additional crypto functions.
 
 ### Usage
 
@@ -81,6 +81,10 @@ F4XDi4ZPCwRAizgVry3CbBLaX9GDbwGXkf/SRoLCEX2veSZKdHtIFMSDGPwIB/h/V0Vodu4k1h0FSMdk
   - Include `crypto` mod
 - v1.0.5
   - Update go-helper/v2
+- v1.1.0
+  - Update go-helper/v2
+  - BoxSealAnonymous()
+    - Remove key length(32) check. No longer apply.
 
 ### License
 

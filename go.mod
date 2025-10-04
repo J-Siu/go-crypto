@@ -3,7 +3,7 @@ module github.com/J-Siu/go-crypto
 go 1.25.1
 
 require (
-	github.com/J-Siu/go-helper/v2 v2.4.1
+	github.com/J-Siu/go-helper/v2 v2.4.2
 	github.com/spf13/cobra v1.10.1
 	golang.org/x/crypto v0.42.0
 )
