@@ -26,8 +26,6 @@ package crypto
 
 import (
 	"encoding/base64"
-	"errors"
-	"strconv"
 
 	"golang.org/x/crypto/nacl/box"
 )
@@ -45,17 +43,9 @@ func BoxSealAnonymous(base64PublicKey, msg *string) (*string, error) {
 		encryptedMsgByte   []byte
 	)
 
-	// Check incoming base64 public key decode length. Must be 32 bytes.
-	var length int = base64.StdEncoding.DecodedLen(len(*base64PublicKey))
-	if length != 32 {
-		e = errors.New("Decoded key length is " + strconv.Itoa(length) + ". Must be 32.")
-	}
-
 	// Decode incoming base64 public key
-	if e == nil {
-		decodedKeyByte = make([]byte, 32)
-		_, e = base64.StdEncoding.Decode(decodedKeyByte, []byte(*base64PublicKey))
-	}
+	decodedKeyByte = make([]byte, 32)
+	_, e = base64.StdEncoding.Decode(decodedKeyByte, []byte(*base64PublicKey))
 	// Encrypt incoming message with public key
 	if e == nil {
 		var publicKeyByte [32]byte
