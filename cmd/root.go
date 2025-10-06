@@ -25,23 +25,31 @@ package cmd
 import (
 	"os"
 
+	"github.com/J-Siu/go-crypto/crypto"
 	"github.com/J-Siu/go-helper/v2/errs"
 	"github.com/J-Siu/go-helper/v2/ezlog"
 	"github.com/spf13/cobra"
 )
 
-const Version = "v1.0.4"
-
 var rootCmd = &cobra.Command{
 	Use:     "go-crypto",
 	Short:   "A x/crypto command line tool.",
-	Version: Version,
+	Version: crypto.Version,
+	PersistentPreRun: func(cmd *cobra.Command, args []string) {
+		debug, _ := cmd.Flags().GetBool("debug")
+		if debug {
+			ezlog.SetLogLevel(ezlog.DEBUG)
+		}
+		ezlog.Debug().N("Version").Mn(crypto.Version).Nn("Flag").Out()
+	},
 	PersistentPostRun: func(cmd *cobra.Command, args []string) {
 		if !errs.IsEmpty() {
-			ezlog.Err().Nn("Error").M(errs.Errs).Out()
+			ezlog.Err().Ln().M(errs.Errs).Out()
+			cmd.Usage()
 			os.Exit(1)
 		}
-	}}
+	},
+}
 
 func Execute() {
 	err := rootCmd.Execute()
@@ -54,4 +62,6 @@ func init() {
 	cobra.OnInitialize(initConfig)
 }
 
-func initConfig() {}
+func initConfig() {
+	rootCmd.PersistentFlags().BoolP("debug", "d", false, "Debug mode")
+}
