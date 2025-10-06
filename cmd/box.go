@@ -28,8 +28,9 @@ import (
 
 // boxCmd represents the box command
 var boxCmd = &cobra.Command{
-	Use:   "box",
-	Short: "x/crypto box commands.",
+	Use:     "box",
+	Aliases: []string{"b"},
+	Short:   "x/crypto box commands.",
 }
 
 func init() {

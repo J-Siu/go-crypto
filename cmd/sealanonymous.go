@@ -35,8 +35,9 @@ var msg string
 
 // sealanonymousCmd represents the sealanonymous command
 var sealanonymousCmd = &cobra.Command{
-	Use:   "sealanonymous",
-	Short: "x/crypto box seal anonymous. Output is base64 encoded",
+	Use:     "sealanonymous",
+	Aliases: []string{"s"},
+	Short:   "x/crypto box seal anonymous. Output in base64 encoded",
 	Run: func(cmd *cobra.Command, args []string) {
 		prefix := "sealanonymousCmd"
 		encrypted_msg, e := crypto.BoxSealAnonymous(&key, &msg)
