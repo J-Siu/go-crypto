@@ -46,6 +46,9 @@ x/crypto box seal anonymous. Output is base64 encoded
 Usage:
   go-crypto box sealanonymous [flags]
 
+Aliases:
+  sealanonymous, s
+
 Flags:
   -h, --help         help for sealanonymous
   -k, --key string   (required) base64 encoded public key
@@ -56,7 +59,7 @@ Flags:
 
 ```sh
 $ go run main.go box sealanonymous -k 'z492di80U5FuJfY8VH2M26Cnzg4UfRRxlqTXMHSWfyY=' -m "This is a test"
-F4XDi4ZPCwRAizgVry3CbBLaX9GDbwGXkf/SRoLCEX2veSZKdHtIFMSDGPwIB/h/V0Vodu4k1h0FSMdksD0=
+CYlrGgMkPCnkucOeFlFZ68IfyW78SJyHF6o5CkWN7HtvreTVbw6umsoLxX7+5buvDzMAlLzQDJaiqjvcOjY=
 ```
 
 ### Repository
@@ -85,6 +88,11 @@ F4XDi4ZPCwRAizgVry3CbBLaX9GDbwGXkf/SRoLCEX2veSZKdHtIFMSDGPwIB/h/V0Vodu4k1h0FSMdk
   - Update go-helper/v2
   - BoxSealAnonymous()
     - Remove key length(32) check. No longer apply.
+- v1.1.1
+  - Add version const
+  - Add cli shorthand
+  - Fix debug output
+  - Update go-helper/v2
 
 ### License
 

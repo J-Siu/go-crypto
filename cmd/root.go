@@ -43,8 +43,8 @@ var rootCmd = &cobra.Command{
 		ezlog.Debug().N("Version").Mn(crypto.Version).Nn("Flag").Out()
 	},
 	PersistentPostRun: func(cmd *cobra.Command, args []string) {
-		if !errs.IsEmpty() {
-			ezlog.Err().Ln().M(errs.Errs).Out()
+		if errs.NotEmpty() {
+			ezlog.Err().L().M(errs.Errs).Out()
 			cmd.Usage()
 			os.Exit(1)
 		}
