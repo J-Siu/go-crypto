@@ -1,11 +1,11 @@
 # go-crypto [![Paypal donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/donate/?business=HZF49NM9D35SJ&no_recurring=0&currency_code=CAD)
 
-Command line tool for encryption function.
+Command line tool for encryption function. (No related to any crypto coin calculation.)
 
 ### Table Of Content
-<!-- TOC -->
 
 - [Purpose](#purpose)
+- [Install](#install)
 - [Usage](#usage)
 - [Package](#package)
 - [Command Line](#command-line)
@@ -15,15 +15,26 @@ Command line tool for encryption function.
 - [Change Log](#change-log)
 - [License](#license)
 
-<!-- /TOC -->
 <!--more-->
 > This is not crypto currency program.
 
 ### Purpose
 
-Provide crypto function for command line scripting, eg. [mygit](https://github.com/J-Siu/mygit). Currently only box seal anonymous is implemented, which is used for calculating github repository secret.
+Provide crypto function for command line scripting, eg. [mygit](https://github.com/J-Siu/mygit). Currently only "box seal anonymous" is implemented/exposed to cli, which is used for calculating github repository secret.
 
-Open an issue here or in [go-crypto](https://github.com/J-Siu/go-crypto) if you need additional crypto functions.
+Open an issue here or in [go-crypto](https://github.com/J-Siu/go-crypto) if you need additional crypto functions exposed.
+
+### Install
+
+Go install
+
+```sh
+go install github.com/J-Siu/go-crypto@latest
+```
+
+Download
+
+- https://github.com/J-Siu/go-crypto/releases
 
 ### Usage
 
