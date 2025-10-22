@@ -12,7 +12,6 @@ Command line tool for encryption function. (No related to any crypto coin calcul
 - [Example](#example)
 - [Repository](#repository)
 - [Contributors](#contributors)
-- [Change Log](#change-log)
 - [License](#license)
 
 <!--more-->
@@ -80,30 +79,6 @@ CYlrGgMkPCnkucOeFlFZ68IfyW78SJyHF6o5CkWN7HtvreTVbw6umsoLxX7+5buvDzMAlLzQDJaiqjvc
 ### Contributors
 
 - [John Sing Dao Siu](https://github.com/J-Siu)
-
-### Change Log
-
-- 1.0.0
-  - Implement box seal anonymous
-- v1.0.1
-  - Fix `goreleaser`
-- v1.0.2
-  - Update to Go 1.20 and dependency
-- v1.0.3
-  - Fix Github workflows
-- v1.0.4
-  - Include `crypto` mod
-- v1.0.5
-  - Update go-helper/v2
-- v1.1.0
-  - Update go-helper/v2
-  - BoxSealAnonymous()
-    - Remove key length(32) check. No longer apply.
-- v1.1.1
-  - Add version const
-  - Add cli shorthand
-  - Fix debug output
-  - Update go-helper/v2
 
 ### License
 
