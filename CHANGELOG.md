@@ -19,3 +19,5 @@
   - Add cli shorthand
   - Fix debug output
   - Update go-helper/v2
+- v1.1.2
+  - update go-helper/v2

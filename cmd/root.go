@@ -40,7 +40,7 @@ var rootCmd = &cobra.Command{
 		if debug {
 			ezlog.SetLogLevel(ezlog.DEBUG)
 		}
-		ezlog.Debug().N("Version").Mn(crypto.Version).Nn("Flag").Out()
+		ezlog.Debug().N("Version").M(crypto.Version).Out()
 	},
 	PersistentPostRun: func(cmd *cobra.Command, args []string) {
 		if errs.NotEmpty() {

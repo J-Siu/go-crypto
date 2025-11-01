@@ -23,10 +23,9 @@ THE SOFTWARE.
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/J-Siu/go-crypto/crypto"
 	"github.com/J-Siu/go-helper/v2/errs"
+	"github.com/J-Siu/go-helper/v2/ezlog"
 	"github.com/spf13/cobra"
 )
 
@@ -42,7 +41,7 @@ var sealanonymousCmd = &cobra.Command{
 		prefix := "sealanonymousCmd"
 		encrypted_msg, e := crypto.BoxSealAnonymous(&key, &msg)
 		if e == nil && encrypted_msg != nil {
-			fmt.Println(*encrypted_msg)
+			ezlog.Log().LogPrefix(false).M(encrypted_msg).Out()
 		}
 		errs.Queue(prefix, e)
 	},
