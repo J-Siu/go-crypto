@@ -1,2 +1,3 @@
-go.work*
+build/
 go-crypto
+go.work*
