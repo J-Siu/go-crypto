@@ -15,7 +15,7 @@ Command line tool for encryption function. (No related to any crypto coin calcul
 - [License](#license)
 
 <!--more-->
-> This is not crypto currency program.
+> This is not a crypto currency program/library.
 
 ### Purpose
 

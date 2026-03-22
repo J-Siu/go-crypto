@@ -23,3 +23,5 @@
   - update go-helper/v2
 - v1.1.3
   - update go-helper/v2
+- v1.1.4
+  - update go-helper/v2
