@@ -34,27 +34,19 @@ import (
 //   - Parameter "base64PublicKey" and returning string are base64 encoded.
 //   - Return nil if error
 //   - All errors append to Errs
-func BoxSealAnonymous(base64PublicKey, msg *string) (*string, error) {
+//   - https://pkg.go.dev/golang.org/x/crypto/nacl/box#SealAnonymous
+func BoxSealAnonymous(base64PublicKey, msg *string) (base64EncryptedMsg string, e error) {
 	var (
-		e error
-
-		base64EncryptedMsg string
-		decodedKeyByte     []byte
-		encryptedMsgByte   []byte
+		encryptedMsgByte []byte
+		publicKeyByte    [32]byte // Decode incoming base64 public key is 32 bytes
 	)
 
-	// Decode incoming base64 public key
-	decodedKeyByte = make([]byte, 32)
-	_, e = base64.StdEncoding.Decode(decodedKeyByte, []byte(*base64PublicKey))
 	// Encrypt incoming message with public key
-	if e == nil {
-		var publicKeyByte [32]byte
-		copy(publicKeyByte[:], decodedKeyByte)
-		encryptedMsgByte, e = box.SealAnonymous(nil, []byte(*msg), &publicKeyByte, nil)
+	if _, e = base64.StdEncoding.Decode(publicKeyByte[:], []byte(*base64PublicKey)); e == nil {
+		// Encode the encrypted message to base64
+		if encryptedMsgByte, e = box.SealAnonymous(nil, []byte(*msg), &publicKeyByte, nil); e == nil {
+			base64EncryptedMsg = base64.StdEncoding.EncodeToString(encryptedMsgByte)
+		}
 	}
-	// Encode the encrypted message to base64
-	if e == nil {
-		base64EncryptedMsg = base64.StdEncoding.EncodeToString(encryptedMsgByte)
-	}
-	return &base64EncryptedMsg, e
+	return base64EncryptedMsg, e
 }

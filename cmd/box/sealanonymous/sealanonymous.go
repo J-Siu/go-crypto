@@ -41,7 +41,7 @@ var SealanonymousCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		prefix := "sealanonymousCmd"
 		encrypted_msg, e := crypto.BoxSealAnonymous(&key, &msg)
-		if e == nil && encrypted_msg != nil {
+		if e == nil {
 			ezlog.Log().LogPrefix(false).M(encrypted_msg).Out()
 		}
 		errs.Queue(prefix, e)
