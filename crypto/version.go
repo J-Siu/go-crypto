@@ -23,5 +23,5 @@ THE SOFTWARE.
 package crypto
 
 const (
-	Version = "v1.1.5"
+	Version = "v1.2.0"
 )

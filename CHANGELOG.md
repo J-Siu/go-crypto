@@ -27,3 +27,7 @@
   - update go-helper/v2
 - v1.1.5
   - update go-helper/v2
+- v1.2.0
+  - update go-helper/v2
+  - breaking change
+    - BoxSealAnonymous: return string instead of *string
