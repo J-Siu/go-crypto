@@ -21,7 +21,11 @@ THE SOFTWARE.
 */
 package main
 
-import "github.com/J-Siu/go-crypto/cmd"
+import (
+	"github.com/J-Siu/go-crypto/cmd"
+	_ "github.com/J-Siu/go-crypto/cmd/box"
+	_ "github.com/J-Siu/go-crypto/cmd/box/sealanonymous"
+)
 
 func main() {
 	cmd.Execute()

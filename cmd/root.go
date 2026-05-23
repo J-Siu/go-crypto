@@ -31,7 +31,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var rootCmd = &cobra.Command{
+var RootCmd = &cobra.Command{
 	Use:     "go-crypto",
 	Short:   "A x/crypto command line tool.",
 	Version: crypto.Version,
@@ -52,7 +52,7 @@ var rootCmd = &cobra.Command{
 }
 
 func Execute() {
-	err := rootCmd.Execute()
+	err := RootCmd.Execute()
 	if err != nil {
 		os.Exit(1)
 	}
@@ -63,5 +63,5 @@ func init() {
 }
 
 func initConfig() {
-	rootCmd.PersistentFlags().BoolP("debug", "d", false, "Debug mode")
+	RootCmd.PersistentFlags().BoolP("debug", "d", false, "Debug mode")
 }

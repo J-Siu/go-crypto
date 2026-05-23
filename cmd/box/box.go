@@ -20,37 +20,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-package cmd
+package box
 
 import (
-	"github.com/J-Siu/go-crypto/crypto"
-	"github.com/J-Siu/go-helper/v2/errs"
-	"github.com/J-Siu/go-helper/v2/ezlog"
+	"github.com/J-Siu/go-crypto/cmd"
 	"github.com/spf13/cobra"
 )
 
-var key string
-var msg string
-
-// sealanonymousCmd represents the sealanonymous command
-var sealanonymousCmd = &cobra.Command{
-	Use:     "sealanonymous",
-	Aliases: []string{"s"},
-	Short:   "x/crypto box seal anonymous. Output in base64 encoded",
-	Run: func(cmd *cobra.Command, args []string) {
-		prefix := "sealanonymousCmd"
-		encrypted_msg, e := crypto.BoxSealAnonymous(&key, &msg)
-		if e == nil && encrypted_msg != nil {
-			ezlog.Log().LogPrefix(false).M(encrypted_msg).Out()
-		}
-		errs.Queue(prefix, e)
-	},
+// BoxCmd represents the box command
+var BoxCmd = &cobra.Command{
+	Use:     "box",
+	Aliases: []string{"b"},
+	Short:   "x/crypto box commands.",
 }
 
 func init() {
-	boxCmd.AddCommand(sealanonymousCmd)
-	sealanonymousCmd.Flags().StringVarP(&key, "key", "k", "", "(required) base64 encoded public key")
-	sealanonymousCmd.Flags().StringVarP(&msg, "msg", "m", "", "(required) plain text message")
-	sealanonymousCmd.MarkFlagRequired("key")
-	sealanonymousCmd.MarkFlagRequired("msg")
+	cmd.RootCmd.AddCommand(BoxCmd)
 }
