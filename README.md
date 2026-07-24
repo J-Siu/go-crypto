@@ -68,7 +68,7 @@ Flags:
 ### Example
 
 ```sh
-$ go run main.go box sealanonymous -k 'z492di80U5FuJfY8VH2M26Cnzg4UfRRxlqTXMHSWfyY=' -m "This is a test"
+$ go run . box sealanonymous -k 'z492di80U5FuJfY8VH2M26Cnzg4UfRRxlqTXMHSWfyY=' -m "This is a test"
 CYlrGgMkPCnkucOeFlFZ68IfyW78SJyHF6o5CkWN7HtvreTVbw6umsoLxX7+5buvDzMAlLzQDJaiqjvcOjY=
 ```
 

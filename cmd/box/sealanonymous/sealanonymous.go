@@ -23,10 +23,11 @@ THE SOFTWARE.
 package sealanonymous
 
 import (
+	"errors"
+	"fmt"
+
 	"github.com/J-Siu/go-crypto/cmd/box"
 	"github.com/J-Siu/go-crypto/crypto"
-	"github.com/J-Siu/go-helper/v2/errs"
-	"github.com/J-Siu/go-helper/v2/ezlog"
 	"github.com/spf13/cobra"
 )
 
@@ -38,13 +39,15 @@ var SealanonymousCmd = &cobra.Command{
 	Use:     "sealanonymous",
 	Aliases: []string{"s"},
 	Short:   "x/crypto box seal anonymous. Output in base64 encoded",
-	Run: func(cmd *cobra.Command, args []string) {
+	RunE: func(cmd *cobra.Command, args []string) error {
 		prefix := "sealanonymousCmd"
 		encrypted_msg, e := crypto.BoxSealAnonymous(&key, &msg)
 		if e == nil {
-			ezlog.Log().LogPrefix(false).M(encrypted_msg).Out()
+			fmt.Println(encrypted_msg)
+		} else {
+			e = errors.New(prefix + ":" + e.Error())
 		}
-		errs.Queue(prefix, e)
+		return e
 	},
 }
 

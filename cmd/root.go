@@ -23,11 +23,10 @@ THE SOFTWARE.
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/J-Siu/go-crypto/crypto"
-	"github.com/J-Siu/go-helper/v2/errs"
-	"github.com/J-Siu/go-helper/v2/ezlog"
 	"github.com/spf13/cobra"
 )
 
@@ -38,15 +37,7 @@ var RootCmd = &cobra.Command{
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		debug, _ := cmd.Flags().GetBool("debug")
 		if debug {
-			ezlog.SetLogLevel(ezlog.DEBUG)
-		}
-		ezlog.Debug().N("Version").M(crypto.Version).Out()
-	},
-	PersistentPostRun: func(cmd *cobra.Command, args []string) {
-		if errs.NotEmpty() {
-			ezlog.Err().L().M(errs.Errs()).Out()
-			cmd.Usage()
-			os.Exit(1)
+			fmt.Println("Version:", crypto.Version)
 		}
 	},
 }

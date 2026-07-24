@@ -31,3 +31,5 @@
   - update go-helper/v2
   - breaking change
     - BoxSealAnonymous: return string instead of *string
+- v1.2.1
+  - dep: rm go-helper
